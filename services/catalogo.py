@@ -45,4 +45,4 @@ class catalogo:
 
     def listar(self):
         for j in self.juegos:
-            print(j.nombre, "-", j.precio)
+            print("id:", j.id, "| nombre:", j.nombre, "| precio:", j.precio, "| stock:", j.stock)
