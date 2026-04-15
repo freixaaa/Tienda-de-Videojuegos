@@ -7,11 +7,6 @@ def cargar_json(ruta):
         return json.load(archivo)
 
 
-def guardar_json(ruta, datos):
-    with open(ruta, "w") as archivo:
-        json.dump(datos, archivo, indent=4)
-
-
 def cargar_csv(ruta):
     datos = []
     with open(ruta, newline="") as archivo:
@@ -19,6 +14,11 @@ def cargar_csv(ruta):
         for fila in lector:
             datos.append(fila)
     return datos
+
+
+def guardar_json(ruta, datos):
+    with open(ruta, "w") as archivo:
+        json.dump(datos, archivo, indent=4)
 
 
 def guardar_csv(ruta, datos):
