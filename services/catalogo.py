@@ -33,13 +33,13 @@ class catalogo:
 
     def agregar(self, juego):
         for j in self.juegos:
-            if j.id == juego.id:
+            if str(j.id) == str(juego.id):
                 raise Exception("id repetido")
         self.juegos.append(juego)
 
     def buscar(self, id):
         for j in self.juegos:
-            if j.id == id:
+            if str(j.id) == str(id):
                 return j
         return None
 
