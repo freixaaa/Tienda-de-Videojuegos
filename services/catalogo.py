@@ -11,14 +11,25 @@ class catalogo:
             self.juegos.append(juego)
 
     def crear_juego(self, d):
-        consola = d["consola"].lower()
+
+        datos = {
+            "id": d["id"],
+            "nombre": d["nombre"],
+            "categoria": d["categoria"],
+            "precio": float(d["precio"]),
+            "rating": d.get("esrb") or d.get("rating"),
+            "stock": int(d["stock"]),
+            "consola": d["consola"]
+        }
+
+        consola = datos["consola"].lower()
 
         if consola == "ps5":
-            return juegops5(**d)
+            return juegops5(**datos)
         elif consola == "xbox":
-            return juegoxbox(**d)
+            return juegoxbox(**datos)
         else:
-            return juegonintendo(**d)
+            return juegonintendo(**datos)
 
     def agregar(self, juego):
         for j in self.juegos:
