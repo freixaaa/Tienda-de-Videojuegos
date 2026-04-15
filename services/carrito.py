@@ -14,14 +14,14 @@ class carrito:
         })
 
     def eliminar(self, id):
-        self.items = [i for i in self.items if i["juego"].id != id]
+        self.items = [i for i in self.items if str(i["juego"].id) != str(id)]
 
     def mostrar(self):
         total = 0
         for i in self.items:
             subtotal = i["cantidad"] * i["juego"].precio
             total += subtotal
-            print(i["juego"].nombre, i["cantidad"], subtotal)
+            print(i["juego"].nombre, "| cantidad:", i["cantidad"], "| subtotal:", subtotal)
         print("total:", total)
 
     def total(self):
