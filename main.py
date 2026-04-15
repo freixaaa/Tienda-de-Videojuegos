@@ -1,12 +1,17 @@
 from services.catalogo import catalogo
 from services.carrito import carrito
 from services.factura import generar_factura
-from utils.archivos import cargar_json
+from utils.archivos import cargar_json, cargar_csv
 
 cat = catalogo()
 car = carrito()
 
-datos = cargar_json("data/juegos.json")
+# cargar datos (puedes cambiar entre json o csv)
+try:
+    datos = cargar_json("data/catalogo.json")
+except:
+    datos = cargar_csv("data/catalogo.csv")
+
 cat.cargar(datos)
 
 while True:
