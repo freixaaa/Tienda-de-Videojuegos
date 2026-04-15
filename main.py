@@ -6,10 +6,15 @@ from utils.archivos import cargar_json, cargar_csv
 cat = catalogo()
 car = carrito()
 
-# cargar datos
-try:
+print("seleccione el tipo de archivo:")
+print("1. json")
+print("2. csv")
+
+tipo = input("opcion: ")
+
+if tipo == "1":
     datos = cargar_json("data/catalogo.json")
-except:
+else:
     datos = cargar_csv("data/catalogo.csv")
 
 cat.cargar(datos)
@@ -25,12 +30,10 @@ while True:
 
     try:
 
-        # 🔹 VER CATALOGO
         if opcion == "1":
             print("\ncatalogo:")
             cat.listar()
 
-        # 🔹 AGREGAR VIDEOJUEGO
         elif opcion == "2":
             print("\ningrese los datos del videojuego:")
 
@@ -47,9 +50,8 @@ while True:
             nuevo = videojuego(id, nombre, categoria, precio, rating, stock, consola)
             cat.agregar(nuevo)
 
-            print("\njuego agregado correctamente")
+            print("juego agregado correctamente")
 
-        # 🔹 SUBMENÚ DE COMPRA
         elif opcion == "3":
 
             while True:
@@ -63,7 +65,6 @@ while True:
 
                 op = input("\nseleccione una opcion: ")
 
-                # agregar juego
                 if op == "1":
                     print("\nusa el id del juego (ver catalogo con opcion 1)")
 
@@ -78,18 +79,15 @@ while True:
                     else:
                         print("juego no encontrado")
 
-                # eliminar juego
                 elif op == "2":
                     id = input("id del juego a eliminar: ")
                     car.eliminar(id)
                     print("juego eliminado")
 
-                # ver carrito
                 elif op == "3":
                     print("\ncontenido del carrito:")
                     car.mostrar()
 
-                # finalizar compra
                 elif op == "4":
                     cliente = input("nombre del cliente: ")
                     archivo = input("nombre del archivo: ")
@@ -97,13 +95,11 @@ while True:
 
                     generar_factura(car, cliente, archivo, formato)
 
-                    print("compra finalizada y factura generada")
+                    print("compra finalizada")
 
-                # salir del carrito
                 elif op == "5":
                     break
 
-        # 🔹 SALIR
         elif opcion == "4":
             break
 
