@@ -6,7 +6,6 @@ from utils.archivos import cargar_json, cargar_csv
 cat = catalogo()
 car = carrito()
 
-# cargar datos (puedes cambiar entre json o csv)
 try:
     datos = cargar_json("data/catalogo.json")
 except:
