@@ -3,9 +3,9 @@ class videojuego:
         self._id = id
         self._nombre = nombre
         self._categoria = categoria
-        self._precio = precio
+        self._precio = float(precio)
         self._rating = rating
-        self._stock = stock
+        self._stock = int(stock)
         self._consola = consola
 
     @property
