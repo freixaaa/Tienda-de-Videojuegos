@@ -90,7 +90,7 @@ while True:
 
                 elif op == "4":
                     cliente = input("nombre del cliente: ")
-                    archivo = input("nombre del archivo: ")
+                    archivo = input("nombre de la factura: ")
                     formato = input("formato (json/csv): ")
 
                     generar_factura(car, cliente, archivo, formato)
